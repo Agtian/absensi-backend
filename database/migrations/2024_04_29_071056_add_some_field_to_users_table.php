@@ -12,9 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
-            $table->string('phone')->nullable();
-            $table->string('role')->default('user');
+            //position
+            $table->string('position')->nullable();
+            //department
+            $table->string('department')->nullable();
+            //face_embedding
+            $table->text('face_embedding')->nullable();
+            //image_url
+            $table->string('image_url')->nullable();
         });
     }
 
@@ -25,8 +30,10 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->dropColumn('phone');
-            $table->dropColumn('role');
+            $table->dropColumn('position');
+            $table->dropColumn('department');
+            $table->dropColumn('face_embedding');
+            $table->dropColumn('image_url');
         });
     }
 };
